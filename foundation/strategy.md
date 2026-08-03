@@ -36,7 +36,25 @@ Allow deeper exploration
 
 The Bible is the primary authority for answers. Supporting sources may explain, organize, or compare interpretations, but they do not replace Scripture.
 
-### 2. Understand Before Answering
+### 2. Source-Based, Not Self-Authoritative
+
+Bible AI does not present itself as an independent source of biblical or theological truth. It does not claim to possess its own revelation, doctrine, or private body of authoritative information.
+
+Its answers must rely on Scripture and on reliable external resources that have been selected, reviewed, and clearly identified. These may include Bible translations, commentaries, dictionaries, theological works, historical sources, and trusted ministry resources.
+
+The system must:
+
+- identify the biblical passages and external resources supporting important claims;
+- distinguish Scripture from commentary and interpretation;
+- make source names and, where appropriate, authors and editions visible to the user;
+- avoid presenting AI-generated wording as though it were an independent authority;
+- state when a conclusion is a synthesis or interpretation rather than a direct biblical statement;
+- avoid relying on unidentified, unverifiable, or low-confidence material;
+- make it possible for users and reviewers to inspect the sources behind an answer.
+
+Prepared topic summaries may be stored in the repository for efficiency and consistency, but they must remain traceable to their underlying Scripture references and approved external sources.
+
+### 3. Understand Before Answering
 
 The system must determine what the user is asking before producing a substantial answer. It should identify:
 
@@ -49,7 +67,7 @@ The system must determine what the user is asking before producing a substantial
 
 These classifications are internal tools. They should not normally be displayed to the user.
 
-### 3. Clarify Only When Necessary
+### 4. Clarify Only When Necessary
 
 The chatbot must not ask the user to repeat or confirm an already clear question.
 
@@ -57,7 +75,7 @@ The chatbot must not ask the user to repeat or confirm an already clear question
 - Moderate confidence: state the likely interpretation and answer carefully.
 - Low confidence: ask one focused clarification question.
 
-### 4. Knowledge Before Search
+### 5. Knowledge Before Search
 
 The primary reusable knowledge object is the biblical topic or subtopic.
 
@@ -73,7 +91,7 @@ Each approved topic should contain:
 
 The system should use this prepared knowledge before initiating a new search.
 
-### 5. Search When Knowledge Is Insufficient
+### 6. Search When Knowledge Is Insufficient
 
 Additional retrieval or research is required when:
 
@@ -85,7 +103,7 @@ Additional retrieval or research is required when:
 - the stored knowledge is incomplete, outdated, disputed, or unreviewed;
 - the user challenges the initial answer and asks for deeper support.
 
-### 6. Separate Content from Presentation
+### 7. Separate Content from Presentation
 
 The system must keep four concerns distinct:
 
@@ -98,7 +116,7 @@ Knowledge  = What do Scripture and approved sources teach?
 
 Sentiment should normally affect tone, opening, order, and level of explanation. It should not alter the underlying doctrine.
 
-### 7. Brief First, Deeper by Progression
+### 8. Brief First, Deeper by Progression
 
 The first answer should normally be brief and complete enough to be useful.
 
@@ -112,7 +130,7 @@ A response may then progress through:
 
 The chatbot should not overwhelm the user with the deepest available material before it is needed.
 
-### 8. Traceable Answers
+### 9. Traceable Answers
 
 The knowledge base must support the following trace:
 
@@ -129,13 +147,13 @@ User wording
 
 Important claims must be explainable and reviewable.
 
-### 9. Consistency Without Canned Conversation
+### 10. Consistency Without Canned Conversation
 
 Equivalent questions should receive the same core biblical teaching. The wording may vary naturally according to the user, language, intent, and context.
 
 The canonical summary is the authoritative foundation of the response, not necessarily a fixed response sent unchanged to every user.
 
-### 10. Theological Transparency
+### 11. Theological Transparency
 
 The system must distinguish among:
 
@@ -202,6 +220,8 @@ The strategy is effective when Bible AI:
 - answers common questions from reviewed knowledge without unnecessary repeated searches;
 - correctly identifies when clarification or deeper research is required;
 - provides concise and biblically supported first responses;
+- clearly identifies the Scripture and reliable external resources behind important claims;
+- never presents AI-generated wording as an independent source of authority;
 - remains consistent across different phrasings of the same question;
 - adapts tone without changing doctrine;
 - allows every important answer to be traced and reviewed.

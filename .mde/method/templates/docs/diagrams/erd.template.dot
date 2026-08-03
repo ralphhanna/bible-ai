@@ -1,0 +1,31 @@
+/*
+ * MDE — Logical ERD (Graphviz DOT). Source of truth for docs/diagrams/erd.svg.
+ *
+ * Render:  node .mde/method/scripts/render-diagram.mjs docs/diagrams/erd.dot docs/diagrams/erd.svg
+ *
+ * Logical view — ENTITIES + RELATIONSHIPS only, NO attributes (attributes live
+ * in each entity's ## Storage View under specs/business/entities/). This file is
+ * a VIEW, not a source of truth: every node traces to an entity file. Graphviz
+ * performs edge-crossing minimization; group by capability with clusters and
+ * keep hub entities central. Split into per-capability ERDs if the model is large.
+ */
+digraph ERD {
+    graph [rankdir=LR, splines=ortho, nodesep=0.6, ranksep=1.0, overlap=false];
+    node  [shape=box, style="rounded", fontname="Helvetica"];
+    edge  [fontname="Helvetica", fontsize=10];
+
+    // %% Group entities by capability to reduce crossings:
+    // subgraph cluster_employee {
+    //     label="Employee Records";
+    //     EMPLOYEE; ASSIGNMENT;
+    // }
+
+    // %% One node per entity (no columns):
+    // EMPLOYEE   [label="Employee"];
+    // ASSIGNMENT [label="Assignment"];
+    // PROJECT    [label="Project"];
+
+    // %% One edge per relationship, cardinality + short verb label:
+    // EMPLOYEE   -> ASSIGNMENT [label="has (1..*)", arrowhead=crow];
+    // PROJECT    -> ASSIGNMENT [label="staffed by (1..*)", arrowhead=crow];
+}

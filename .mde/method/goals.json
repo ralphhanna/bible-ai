@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "source": "The canonical MDE project-goal catalogue. The Workbench reads this to let the user PICK a goal (not free-text); the goal loop and docs reference the same set. Prose form: .mde/docs/reference/guides.md.",
+  "progression": ["foundation", "first-release", "enhancements", "production", "expansion", "optimization"],
+  "goals": [
+    {
+      "id": "foundation",
+      "order": 1,
+      "title": "Establish the Foundation for Customer Review",
+      "objective": "Establish the foundation for customer review — business requirements, scope, terminology, core business rules, and an initial design or prototype.",
+      "description": "Define the business requirements, scope, terminology, core business rules, and initial design or prototype. Give the customer something concrete to review before committing to the complete application."
+    },
+    {
+      "id": "first-release",
+      "order": 2,
+      "title": "Build the First Usable Release",
+      "objective": "Build the first usable release — the minimum end-to-end application that delivers the core business value.",
+      "description": "Implement and verify the minimum end-to-end application that delivers the core business value. The objective is a working application, not merely a collection of technical components."
+    },
+    {
+      "id": "enhancements",
+      "order": 3,
+      "title": "Introduce Customer-Driven Enhancements",
+      "objective": "Introduce customer-driven enhancements — apply feedback, improve workflows, and add the most important missing capabilities.",
+      "description": "Apply customer feedback, improve workflows, and add the most important missing capabilities. Align the application more closely with how the customer actually works."
+    },
+    {
+      "id": "production",
+      "order": 4,
+      "title": "Prepare the Application for Production",
+      "objective": "Prepare the application for production — security, access control, performance, reliability, deployment, monitoring, and operational support.",
+      "description": "Strengthen security, access control, performance, reliability, deployment, monitoring, and operational support. Make the application safe and dependable for production use."
+    },
+    {
+      "id": "expansion",
+      "order": 5,
+      "title": "Expand Business Capabilities",
+      "objective": "Expand business capabilities — secondary workflows, reporting, notifications, integrations, and more advanced business rules.",
+      "description": "Add secondary workflows, reporting, notifications, integrations, and more advanced business rules. Extend the application's business value beyond the initial release."
+    },
+    {
+      "id": "optimization",
+      "order": 6,
+      "title": "Optimize the Business Experience",
+      "objective": "Optimize the business experience — usability, automation, efficiency, analytics, and maintainability based on actual usage.",
+      "description": "Improve usability, automation, efficiency, analytics, and maintainability based on actual usage. Make the application easier to use and the supported business processes more effective."
+    }
+  ]
+}

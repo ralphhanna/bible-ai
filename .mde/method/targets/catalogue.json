@@ -1,0 +1,528 @@
+[
+  {
+    "id": "api",
+    "requires": [
+      "testing",
+      "documentation"
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "output": "route",
+        "path": "src/server/{cap}/{Cap}Routes.ts",
+        "perEach": "business-capability",
+        "when": "always"
+      },
+      {
+        "output": "service",
+        "path": "src/server/{cap}/{Cap}Service.ts",
+        "perEach": "business-capability",
+        "when": "always"
+      },
+      {
+        "output": "types",
+        "path": "src/server/{cap}/{Cap}Types.ts",
+        "perEach": "business-capability",
+        "when": "always"
+      },
+      {
+        "output": "rule-enforcement",
+        "path": "src/server/{cap}/{Cap}Service.ts (validation)",
+        "perEach": "business-rule",
+        "when": "always"
+      },
+      {
+        "output": "shared-infra",
+        "path": "src/server/shared/",
+        "perEach": null,
+        "when": "always"
+      },
+      {
+        "output": "auth-endpoint",
+        "path": "src/server/shared/auth/ (login/logout route)",
+        "perEach": null,
+        "when": "auth-in-scope"
+      },
+      {
+        "output": "openapi-contract",
+        "path": "openapi.yaml",
+        "perEach": null,
+        "when": "always"
+      }
+    ],
+    "path": "app/api.md"
+  },
+  {
+    "id": "api-design",
+    "requires": [],
+    "inputs": [],
+    "outputs": [],
+    "path": "design/api-design.md"
+  },
+  {
+    "id": "application-design",
+    "requires": [],
+    "inputs": [
+      "user: technology stack selection"
+    ],
+    "outputs": [
+      {
+        "output": "capability-design",
+        "path": "specs/design/capabilities/{cap}/overview.md",
+        "perEach": "business-capability",
+        "when": "design-in-scope"
+      },
+      {
+        "output": "tech-stack",
+        "path": "specs/design/tech-stack.md",
+        "perEach": null,
+        "when": "design-in-scope"
+      }
+    ],
+    "path": "design/application-design.md"
+  },
+  {
+    "id": "architecture",
+    "requires": [],
+    "inputs": [],
+    "outputs": [
+      {
+        "output": "architecture-doc",
+        "path": "specs/design/architecture.md",
+        "perEach": null,
+        "when": "always"
+      },
+      {
+        "output": "architecture-diagram",
+        "path": "docs/diagrams/architecture.md",
+        "perEach": null,
+        "when": "always"
+      },
+      {
+        "output": "interaction-diagram",
+        "path": "docs/diagrams/interactions.md",
+        "perEach": null,
+        "when": "always"
+      },
+      {
+        "output": "shared-infra-source",
+        "path": "src/server/shared/",
+        "perEach": null,
+        "when": "server"
+      }
+    ],
+    "path": "design/architecture.md"
+  },
+  {
+    "id": "business-requirements",
+    "requires": [],
+    "inputs": [],
+    "outputs": [
+      {
+        "output": "capability-overview",
+        "path": "specs/business/capabilities/{cap}/overview.md",
+        "perEach": "business-capability",
+        "when": "always"
+      },
+      {
+        "output": "entity-spec",
+        "path": "specs/business/entities/{entity}.md",
+        "perEach": "entity",
+        "when": "always"
+      },
+      {
+        "output": "use-case-spec",
+        "path": "specs/business/capabilities/{cap}/use-cases/{uc}.md",
+        "perEach": "use-case",
+        "when": "always"
+      },
+      {
+        "output": "business-rule-spec",
+        "path": "specs/business/capabilities/{cap}/business-rules/{rule}.md",
+        "perEach": "business-rule",
+        "when": "always"
+      },
+      {
+        "output": "role-spec",
+        "path": "specs/business/roles/{role}.md",
+        "perEach": "role",
+        "when": "always"
+      },
+      {
+        "output": "business-overview",
+        "path": "specs/business/business-overview.md",
+        "perEach": null,
+        "when": "always"
+      },
+      {
+        "output": "glossary",
+        "path": "specs/business/glossary.md",
+        "perEach": null,
+        "when": "always"
+      }
+    ],
+    "path": "requirements/business-requirements.md"
+  },
+  {
+    "id": "deployment",
+    "requires": [],
+    "inputs": [],
+    "outputs": [
+      {
+        "output": "deploy-config",
+        "path": "deploy/",
+        "perEach": null,
+        "when": "always"
+      },
+      {
+        "output": "operator-guide",
+        "path": "docs/operator-guide.md",
+        "perEach": null,
+        "when": "always"
+      }
+    ],
+    "path": "app/deployment.md"
+  },
+  {
+    "id": "dev-setup",
+    "requires": [],
+    "inputs": [
+      "tech-stack",
+      "derived: from tech-stack — runtimes, services, and tools its axes require; ask for values and for permission to install or create them"
+    ],
+    "outputs": [
+      {
+        "output": "env-check-log",
+        "path": "plans/{plan}/evidence/logs/env-check.log",
+        "perEach": null,
+        "when": "always"
+      },
+      {
+        "output": "db-connect-log",
+        "path": "plans/{plan}/evidence/logs/db-connect.log",
+        "perEach": null,
+        "when": "db-in-scope"
+      },
+      {
+        "output": "migrate-log",
+        "path": "plans/{plan}/evidence/logs/migrate.log",
+        "perEach": null,
+        "when": "migrations-exist"
+      },
+      {
+        "output": "health-log",
+        "path": "plans/{plan}/evidence/logs/health.log",
+        "perEach": null,
+        "when": "always"
+      },
+      {
+        "output": "smoke-log",
+        "path": "plans/{plan}/evidence/logs/smoke.log",
+        "perEach": null,
+        "when": "always"
+      },
+      {
+        "output": "teardown-log",
+        "path": "plans/{plan}/evidence/logs/teardown.log",
+        "perEach": null,
+        "when": "always"
+      }
+    ],
+    "path": "app/dev-setup.md"
+  },
+  {
+    "id": "documentation",
+    "requires": [],
+    "inputs": [],
+    "outputs": [
+      {
+        "output": "capability-doc",
+        "path": "docs/capabilities/{cap}.md",
+        "perEach": "business-capability",
+        "when": "always"
+      },
+      {
+        "output": "use-case-walkthrough",
+        "path": "docs/walkthroughs/{slug}.md",
+        "perEach": "use-case",
+        "when": "web-ui"
+      },
+      {
+        "output": "user-guide",
+        "path": "docs/user-guide.md",
+        "perEach": null,
+        "when": "web-ui"
+      },
+      {
+        "output": "operator-guide",
+        "path": "docs/operator-guide.md",
+        "perEach": null,
+        "when": "deployment"
+      },
+      {
+        "output": "erd",
+        "path": "docs/diagrams/erd.md",
+        "perEach": null,
+        "when": "data-model-in-scope"
+      },
+      {
+        "output": "nav-diagram",
+        "path": "docs/diagrams/navigation.md",
+        "perEach": null,
+        "when": "web-ui"
+      }
+    ],
+    "path": "app/documentation.md"
+  },
+  {
+    "id": "integration",
+    "requires": [],
+    "inputs": [],
+    "outputs": [
+      {
+        "output": "integration-spec",
+        "path": "specs/design/integrations/{system}.md",
+        "perEach": "integration",
+        "when": "integration-in-scope"
+      }
+    ],
+    "path": "app/integration.md"
+  },
+  {
+    "id": "method-change",
+    "requires": [],
+    "inputs": [],
+    "outputs": [],
+    "path": "method-change.md"
+  },
+  {
+    "id": "persistence",
+    "requires": [
+      "testing",
+      "documentation"
+    ],
+    "inputs": [
+      "tech-stack",
+      "derived: from tech-stack — the database it selects, reachable, plus its connection string"
+    ],
+    "outputs": [
+      {
+        "output": "migration",
+        "path": "db/migrations/{n}_{name}.up.sql",
+        "perEach": null,
+        "when": "always"
+      },
+      {
+        "output": "repository",
+        "path": "src/server/{cap}/{Cap}Repository.ts",
+        "perEach": "business-capability",
+        "when": "always"
+      },
+      {
+        "output": "seed-data",
+        "path": "db/seeds/{n}_seed.sql",
+        "perEach": null,
+        "when": "always"
+      },
+      {
+        "output": "rule-enforcement",
+        "path": "src/server/{cap}/{Cap}Repository.ts (constraint)",
+        "perEach": "business-rule",
+        "when": "always"
+      },
+      {
+        "output": "db-report",
+        "path": "reports/evidence/db-report.json",
+        "perEach": null,
+        "when": "always"
+      }
+    ],
+    "path": "app/persistence.md"
+  },
+  {
+    "id": "persistence-design",
+    "requires": [],
+    "inputs": [],
+    "outputs": [
+      {
+        "output": "storage-view",
+        "path": "specs/business/entities/{entity}.md (## Storage View)",
+        "perEach": "entity",
+        "when": "always"
+      }
+    ],
+    "path": "design/persistence-design.md"
+  },
+  {
+    "id": "prototyping",
+    "requires": [],
+    "inputs": [],
+    "outputs": [
+      {
+        "output": "fake-api",
+        "path": "tools/fake-api/",
+        "perEach": null,
+        "when": "prototype-in-scope"
+      },
+      {
+        "output": "role-switcher",
+        "path": "src/web/src/components/ (dev header)",
+        "perEach": null,
+        "when": "prototype-in-scope"
+      }
+    ],
+    "path": "app/prototyping.md"
+  },
+  {
+    "id": "run-app",
+    "requires": [
+      "dev-setup"
+    ],
+    "inputs": [
+      "tech-stack",
+      "derived: from dev-setup — a proven-runnable environment (env resolved, database reached, app starts)"
+    ],
+    "outputs": [],
+    "path": "app/run-app.md"
+  },
+  {
+    "id": "server",
+    "requires": [
+      "testing",
+      "documentation"
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "output": "capability-slice",
+        "path": "src/server/{cap}/",
+        "perEach": "business-capability",
+        "when": "always"
+      },
+      {
+        "output": "shared-module",
+        "path": "src/server/shared/",
+        "perEach": null,
+        "when": "always"
+      },
+      {
+        "output": "app-entry",
+        "path": "src/server/index.ts",
+        "perEach": null,
+        "when": "always"
+      },
+      {
+        "output": "auth-boundary",
+        "path": "src/server/shared/auth/",
+        "perEach": null,
+        "when": "auth-in-scope"
+      }
+    ],
+    "path": "app/server.md"
+  },
+  {
+    "id": "testing",
+    "requires": [],
+    "inputs": [],
+    "outputs": [
+      {
+        "output": "api-test",
+        "path": "tests/api/{cap}.feature",
+        "perEach": "business-capability",
+        "when": "api"
+      },
+      {
+        "output": "ui-test",
+        "path": "tests/ui/{cap}.feature",
+        "perEach": "business-capability",
+        "when": "web-ui"
+      },
+      {
+        "output": "rule-test",
+        "path": "tests/business-rules/{cap}.feature (scenario per rule)",
+        "perEach": "business-rule",
+        "when": "always"
+      },
+      {
+        "output": "rule-test-report",
+        "path": "reports/evidence/tests-business-rules/",
+        "perEach": null,
+        "when": "always"
+      },
+      {
+        "output": "coverage-report",
+        "path": "reports/evidence/coverage/",
+        "perEach": null,
+        "when": "always"
+      },
+      {
+        "output": "test-evidence",
+        "path": "evidence/logs/",
+        "perEach": null,
+        "when": "always"
+      },
+      {
+        "output": "migrate-log",
+        "path": "evidence/logs/migrate.log",
+        "perEach": null,
+        "when": "persistence"
+      },
+      {
+        "output": "seed-log",
+        "path": "evidence/logs/seed.log",
+        "perEach": null,
+        "when": "persistence"
+      }
+    ],
+    "path": "app/testing.md"
+  },
+  {
+    "id": "ui-design",
+    "requires": [],
+    "inputs": [],
+    "outputs": [
+      {
+        "output": "page-spec",
+        "path": "specs/design/UI/pages/{page}.md",
+        "perEach": "web-page",
+        "when": "always"
+      },
+      {
+        "output": "ui-catalog",
+        "path": "specs/design/UI/ui-catalog.md",
+        "perEach": null,
+        "when": "always"
+      }
+    ],
+    "path": "design/ui-design.md"
+  },
+  {
+    "id": "web-ui",
+    "requires": [
+      "testing",
+      "documentation"
+    ],
+    "inputs": [],
+    "outputs": [
+      {
+        "output": "page",
+        "path": "src/web/src/pages/{page}.tsx",
+        "perEach": "web-page",
+        "when": "always"
+      },
+      {
+        "output": "page-screenshot",
+        "path": "reports/evidence/screenshots/{page}.png",
+        "perEach": "web-page",
+        "when": "always"
+      },
+      {
+        "output": "operation-panel",
+        "path": "src/web/src/pages/{page}.tsx (part rendering {entity}.{op})",
+        "perEach": "entity-operation",
+        "when": "always"
+      }
+    ],
+    "path": "app/web-ui.md"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "audit-trail",
+    "declaredAt": "entity",
+    "implementedBy": "audit-history"
+  },
+  {
+    "name": "optimistic-locking",
+    "declaredAt": "entity",
+    "implementedBy": "optimistic-locking"
+  },
+  {
+    "name": "soft-deactivation",
+    "declaredAt": "entity",
+    "implementedBy": "entity-model"
+  },
+  {
+    "name": "surrogate-key",
+    "declaredAt": "entity",
+    "implementedBy": "storage-view-model"
+  }
+]

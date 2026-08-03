@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>UI Patterns Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; }
+  .pattern-section { background: white; border: 1px solid #e2e8f0; border-radius: 8px; margin: 24px; padding: 24px; }
+  .pattern-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; margin-bottom: 16px; }
+  .badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 9999px; font-size: 12px; font-weight: 500; }
+  .badge-green { background: #dcfce7; color: #166534; }
+  .badge-blue { background: #dbeafe; color: #1e40af; }
+  .badge-amber { background: #fef9c3; color: #854d0e; }
+  .badge-red { background: #fee2e2; color: #991b1b; }
+  .badge-slate { background: #f1f5f9; color: #475569; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; border: none; }
+  .btn-primary { background: #0f172a; color: white; }
+  .btn-outline { background: white; color: #0f172a; border: 1px solid #e2e8f0; }
+  .btn-ghost { background: transparent; color: #64748b; }
+  .btn-destructive { background: #ef4444; color: white; }
+  .input { width: 100%; padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 14px; outline: none; }
+  .label { font-size: 13px; font-weight: 500; color: #0f172a; display: block; margin-bottom: 4px; }
+  .card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; }
+  .tab { padding: 8px 16px; font-size: 14px; font-weight: 500; cursor: pointer; border-bottom: 2px solid transparent; color: #64748b; }
+  .tab.active { border-bottom-color: #0f172a; color: #0f172a; }
+  .timeline-dot { width: 10px; height: 10px; border-radius: 50%; background: #0f172a; flex-shrink: 0; margin-top: 4px; }
+  .timeline-line { width: 2px; background: #e2e8f0; margin: 0 auto; flex: 1; }
+</style>
+</head>
+<body>
+
+<!-- PATTERN: stat-cards -->
+<div class="pattern-section" id="stat-cards">
+  <div class="pattern-label">stat-cards</div>
+  <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:16px;">
+    <div class="card" style="padding:20px;">
+      <div style="font-size:13px;color:#64748b;margin-bottom:8px;">Total Employees</div>
+      <div style="font-size:28px;font-weight:700;color:#0f172a;">142</div>
+      <div style="font-size:12px;color:#16a34a;margin-top:4px;">↑ 4 this month</div>
+    </div>
+    <div class="card" style="padding:20px;">
+      <div style="font-size:13px;color:#64748b;margin-bottom:8px;">Active Projects</div>
+      <div style="font-size:28px;font-weight:700;color:#0f172a;">23</div>
+      <div style="font-size:12px;color:#64748b;margin-top:4px;">across 8 clients</div>
+    </div>
+    <div class="card" style="padding:20px;">
+      <div style="font-size:13px;color:#64748b;margin-bottom:8px;">Pending Leave</div>
+      <div style="font-size:28px;font-weight:700;color:#0f172a;">7</div>
+      <div style="font-size:12px;color:#d97706;margin-top:4px;">awaiting approval</div>
+    </div>
+    <div class="card" style="padding:20px;">
+      <div style="font-size:13px;color:#64748b;margin-bottom:8px;">Reviews Due</div>
+      <div style="font-size:28px;font-weight:700;color:#0f172a;">12</div>
+      <div style="font-size:12px;color:#ef4444;margin-top:4px;">overdue: 3</div>
+    </div>
+  </div>
+</div>
+
+<!-- PATTERN: tabs-layout -->
+<div class="pattern-section" id="tabs-layout">
+  <div class="pattern-label">tabs-layout</div>
+  <div style="border-bottom:1px solid #e2e8f0; display:flex; gap:0; margin-bottom:20px;">
+    <div class="tab active">Overview</div>
+    <div class="tab">Skills</div>
+    <div class="tab">Assignments</div>
+    <div class="tab">Reviews</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div>
+      <div class="label">Employee</div>
+      <div style="font-size:14px;color:#0f172a;padding:8px 0;">Alice Nguyen</div>
+    </div>
+    <div>
+      <div class="label">Department</div>
+      <div style="font-size:14px;color:#0f172a;padding:8px 0;">Engineering</div>
+    </div>
+    <div>
+      <div class="label">Job Title</div>
+      <div style="font-size:14px;color:#0f172a;padding:8px 0;">Senior Developer</div>
+    </div>
+    <div>
+      <div class="label">Status</div>
+      <div style="padding:8px 0;"><span class="badge badge-green">Active</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PATTERN: detail-page -->
+<div class="pattern-section" id="detail-page">
+  <div class="pattern-label">detail-page</div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+    <div>
+      <div style="font-size:20px;font-weight:700;">Alice Nguyen</div>
+      <div style="font-size:14px;color:#64748b;">Senior Developer · Engineering</div>
+    </div>
+    <div style="display:flex;gap:8px;">
+      <button class="btn btn-outline">Edit</button>
+      <button class="btn btn-primary">Assign to Project</button>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
+    <div>
+      <div class="label">Employee Number</div>
+      <div style="font-size:14px;color:#0f172a;padding:6px 0;border-bottom:1px solid #f1f5f9;">EMP-0042</div>
+    </div>
+    <div>
+      <div class="label">Manager</div>
+      <div style="font-size:14px;color:#0f172a;padding:6px 0;border-bottom:1px solid #f1f5f9;">Sarah Jones</div>
+    </div>
+    <div>
+      <div class="label">Start Date</div>
+      <div style="font-size:14px;color:#0f172a;padding:6px 0;border-bottom:1px solid #f1f5f9;">12 Mar 2021</div>
+    </div>
+    <div>
+      <div class="label">Email</div>
+      <div style="font-size:14px;color:#0f172a;padding:6px 0;border-bottom:1px solid #f1f5f9;">alice@company.com</div>
+    </div>
+    <div>
+      <div class="label">Location</div>
+      <div style="font-size:14px;color:#0f172a;padding:6px 0;border-bottom:1px solid #f1f5f9;">London, UK</div>
+    </div>
+    <div>
+      <div class="label">Status</div>
+      <div style="padding:6px 0;border-bottom:1px solid #f1f5f9;"><span class="badge badge-green">Active</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PATTERN: approval-queue -->
+<div class="pattern-section" id="approval-queue">
+  <div class="pattern-label">approval-queue</div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+    <div style="font-size:16px;font-weight:600;">Pending Approvals <span style="font-size:13px;font-weight:400;color:#64748b;">3 requests</span></div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:0;">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:16px;padding:10px 12px;font-size:12px;font-weight:600;color:#64748b;border-bottom:1px solid #e2e8f0;text-transform:uppercase;letter-spacing:0.05em;">
+      <div>Employee</div><div>Leave Type</div><div>Dates</div><div>Days</div><div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:16px;padding:14px 12px;align-items:center;border-bottom:1px solid #f1f5f9;font-size:14px;">
+      <div><div style="font-weight:500;">Carlos Ruiz</div><div style="font-size:12px;color:#64748b;">Submitted 2 days ago</div></div>
+      <div>Annual Leave</div>
+      <div>14–18 Jul</div>
+      <div>5</div>
+      <div style="display:flex;gap:6px;"><button class="btn btn-primary" style="padding:5px 12px;font-size:13px;">Approve</button><button class="btn btn-outline" style="padding:5px 12px;font-size:13px;">Reject</button></div>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:16px;padding:14px 12px;align-items:center;border-bottom:1px solid #f1f5f9;font-size:14px;">
+      <div><div style="font-weight:500;">Maya Chen</div><div style="font-size:12px;color:#64748b;">Submitted today</div></div>
+      <div>Sick Leave</div>
+      <div>10 Jul</div>
+      <div>1</div>
+      <div style="display:flex;gap:6px;"><button class="btn btn-primary" style="padding:5px 12px;font-size:13px;">Approve</button><button class="btn btn-outline" style="padding:5px 12px;font-size:13px;">Reject</button></div>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:16px;padding:14px 12px;align-items:center;font-size:14px;">
+      <div><div style="font-weight:500;">Tom Baker</div><div style="font-size:12px;color:#64748b;">Submitted 5 days ago</div></div>
+      <div>Parental Leave</div>
+      <div>1–31 Aug</div>
+      <div>23</div>
+      <div style="display:flex;gap:6px;"><button class="btn btn-primary" style="padding:5px 12px;font-size:13px;">Approve</button><button class="btn btn-outline" style="padding:5px 12px;font-size:13px;">Reject</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- PATTERN: audit-trail -->
+<div class="pattern-section" id="audit-trail">
+  <div class="pattern-label">audit-trail</div>
+  <div style="display:flex;flex-direction:column;gap:0;max-width:560px;">
+    <div style="display:flex;gap:16px;">
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <div class="timeline-dot"></div>
+        <div class="timeline-line"></div>
+      </div>
+      <div style="padding-bottom:20px;">
+        <div style="font-size:13px;font-weight:600;">Status changed to <span class="badge badge-green" style="font-size:12px;">Approved</span></div>
+        <div style="font-size:12px;color:#64748b;margin-top:2px;">Sarah Jones · Manager · 9 Jul 2026, 14:32</div>
+        <div style="font-size:13px;color:#475569;margin-top:6px;padding:8px 10px;background:#f8fafc;border-radius:4px;border-left:3px solid #e2e8f0;">Approved — team coverage confirmed for this period.</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:16px;">
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <div class="timeline-dot" style="background:#64748b;"></div>
+        <div class="timeline-line"></div>
+      </div>
+      <div style="padding-bottom:20px;">
+        <div style="font-size:13px;font-weight:600;">Leave request submitted</div>
+        <div style="font-size:12px;color:#64748b;margin-top:2px;">Carlos Ruiz · Employee · 7 Jul 2026, 09:15</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:16px;">
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <div class="timeline-dot" style="background:#64748b;"></div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:600;">Record created</div>
+        <div style="font-size:12px;color:#64748b;margin-top:2px;">System · 7 Jul 2026, 09:15</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PATTERN: status-stepper -->
+<div class="pattern-section" id="status-stepper">
+  <div class="pattern-label">status-stepper</div>
+  <div style="display:flex;align-items:center;gap:0;max-width:600px;">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;">
+      <div style="width:32px;height:32px;border-radius:50%;background:#0f172a;color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;">✓</div>
+      <div style="font-size:12px;font-weight:500;color:#0f172a;">Submitted</div>
+    </div>
+    <div style="height:2px;background:#0f172a;flex:1;margin-bottom:18px;"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;">
+      <div style="width:32px;height:32px;border-radius:50%;background:#0f172a;color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;">✓</div>
+      <div style="font-size:12px;font-weight:500;color:#0f172a;">Under Review</div>
+    </div>
+    <div style="height:2px;background:#0f172a;flex:1;margin-bottom:18px;"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;">
+      <div style="width:32px;height:32px;border-radius:50%;background:#0f172a;color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;">●</div>
+      <div style="font-size:12px;font-weight:600;color:#0f172a;">Approved</div>
+    </div>
+    <div style="height:2px;background:#e2e8f0;flex:1;margin-bottom:18px;"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;">
+      <div style="width:32px;height:32px;border-radius:50%;background:white;border:2px solid #e2e8f0;color:#94a3b8;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;">4</div>
+      <div style="font-size:12px;font-weight:500;color:#94a3b8;">Completed</div>
+    </div>
+  </div>
+</div>
+
+<!-- PATTERN: form-page -->
+<div class="pattern-section" id="form-page">
+  <div class="pattern-label">form-page</div>
+  <div style="max-width:560px;">
+    <div style="font-size:18px;font-weight:700;margin-bottom:4px;">New Leave Request</div>
+    <div style="font-size:13px;color:#64748b;margin-bottom:24px;">Submit a leave request for manager approval.</div>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div><label class="label">Leave Type</label><select class="input"><option>Annual Leave</option><option>Sick Leave</option><option>Parental Leave</option></select></div>
+        <div><label class="label">Available Balance</label><input class="input" value="18 days remaining" disabled style="background:#f8fafc;color:#64748b;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div><label class="label">Start Date</label><input type="date" class="input" value="2026-07-14"></div>
+        <div><label class="label">End Date</label><input type="date" class="input" value="2026-07-18"></div>
+      </div>
+      <div><label class="label">Reason <span style="color:#94a3b8;font-weight:400;">(optional)</span></label><textarea class="input" rows="3" style="resize:none;">Family holiday — pre-booked.</textarea></div>
+      <div style="display:flex;gap:8px;justify-content:flex-end;padding-top:8px;">
+        <button class="btn btn-outline">Cancel</button>
+        <button class="btn btn-primary">Submit Request</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PATTERN: confirmation-dialog -->
+<div class="pattern-section" id="confirmation-dialog">
+  <div class="pattern-label">confirmation-dialog</div>
+  <div style="position:relative;background:#00000022;padding:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+    <div style="background:white;border-radius:8px;padding:24px;max-width:400px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.15);">
+      <div style="font-size:16px;font-weight:700;margin-bottom:8px;">Cancel Leave Request?</div>
+      <div style="font-size:14px;color:#475569;margin-bottom:24px;">This will cancel your Annual Leave request for 14–18 Jul. This action cannot be undone.</div>
+      <div style="display:flex;gap:8px;justify-content:flex-end;">
+        <button class="btn btn-outline">Keep Request</button>
+        <button class="btn btn-destructive">Cancel Request</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PATTERN: notification-toast -->
+<div class="pattern-section" id="notification-toast">
+  <div class="pattern-label">notification-toast</div>
+  <div style="display:flex;flex-direction:column;gap:10px;max-width:380px;">
+    <div style="display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:white;border:1px solid #e2e8f0;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08);border-left:4px solid #16a34a;">
+      <div style="color:#16a34a;font-size:16px;margin-top:1px;">✓</div>
+      <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:#0f172a;">Leave request submitted</div><div style="font-size:13px;color:#64748b;">Your request has been sent to Sarah Jones for approval.</div></div>
+      <div style="color:#94a3b8;cursor:pointer;font-size:16px;">×</div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:white;border:1px solid #e2e8f0;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08);border-left:4px solid #ef4444;">
+      <div style="color:#ef4444;font-size:16px;margin-top:1px;">✕</div>
+      <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:#0f172a;">Save failed</div><div style="font-size:13px;color:#64748b;">Could not save changes. Please try again.</div></div>
+      <div style="color:#94a3b8;cursor:pointer;font-size:16px;">×</div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:white;border:1px solid #e2e8f0;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08);border-left:4px solid #d97706;">
+      <div style="color:#d97706;font-size:16px;margin-top:1px;">⚠</div>
+      <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:#0f172a;">Balance low</div><div style="font-size:13px;color:#64748b;">Only 2 days of Annual Leave remaining after this request.</div></div>
+      <div style="color:#94a3b8;cursor:pointer;font-size:16px;">×</div>
+    </div>
+  </div>
+</div>
+
+<!-- PATTERN: search-results -->
+<div class="pattern-section" id="search-results">
+  <div class="pattern-label">search-results</div>
+  <div style="max-width:560px;">
+    <div style="position:relative;margin-bottom:16px;">
+      <input class="input" value="alice" style="padding-left:36px;">
+      <div style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#94a3b8;">🔍</div>
+    </div>
+    <div style="font-size:12px;color:#64748b;margin-bottom:12px;">3 results for "alice"</div>
+    <div style="display:flex;flex-direction:column;gap:0;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+      <div style="padding:14px 16px;border-bottom:1px solid #f1f5f9;display:flex;justify-content:space-between;align-items:center;">
+        <div><div style="font-size:14px;font-weight:500;"><mark style="background:#fef9c3;">Alice</mark> Nguyen</div><div style="font-size:12px;color:#64748b;">Senior Developer · Engineering</div></div>
+        <span class="badge badge-green">Active</span>
+      </div>
+      <div style="padding:14px 16px;border-bottom:1px solid #f1f5f9;display:flex;justify-content:space-between;align-items:center;background:#f8fafc;">
+        <div><div style="font-size:14px;font-weight:500;"><mark style="background:#fef9c3;">Alice</mark> in Wonderland Project</div><div style="font-size:12px;color:#64748b;">Client Project · Q3 2026</div></div>
+        <span class="badge badge-blue">Active</span>
+      </div>
+      <div style="padding:14px 16px;display:flex;justify-content:space-between;align-items:center;">
+        <div><div style="font-size:14px;font-weight:500;">Leave request by <mark style="background:#fef9c3;">Alice</mark> Nguyen</div><div style="font-size:12px;color:#64748b;">Annual Leave · 14–18 Jul 2026</div></div>
+        <span class="badge badge-amber">Pending</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PATTERN: breadcrumb-nav -->
+<div class="pattern-section" id="breadcrumb-nav">
+  <div class="pattern-label">breadcrumb-nav</div>
+  <div style="display:flex;align-items:center;gap:6px;font-size:14px;color:#64748b;margin-bottom:20px;">
+    <span style="cursor:pointer;color:#0f172a;font-weight:500;">HR System</span>
+    <span>/</span>
+    <span style="cursor:pointer;">Project Assignments</span>
+    <span>/</span>
+    <span style="cursor:pointer;">Alice Nguyen</span>
+    <span>/</span>
+    <span style="color:#0f172a;font-weight:500;">Edit Assignment</span>
+  </div>
+  <div style="font-size:20px;font-weight:700;color:#0f172a;">Edit Assignment — Alice Nguyen</div>
+  <div style="font-size:13px;color:#64748b;margin-top:4px;">Project: Wonderland Redesign · Started 1 Jun 2026</div>
+</div>
+
+<!-- PATTERN: split-master-detail -->
+<div class="pattern-section" id="split-master-detail">
+  <div class="pattern-label">split-master-detail</div>
+  <div style="display:grid;grid-template-columns:280px 1fr;gap:0;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;height:280px;">
+    <div style="border-right:1px solid #e2e8f0;overflow-y:auto;">
+      <div style="padding:12px;border-bottom:1px solid #e2e8f0;"><input class="input" placeholder="Search employees…" style="font-size:13px;"></div>
+      <div style="padding:12px 14px;border-bottom:1px solid #f1f5f9;background:#f8fafc;cursor:pointer;">
+        <div style="font-size:14px;font-weight:500;">Alice Nguyen</div>
+        <div style="font-size:12px;color:#64748b;">Senior Developer</div>
+      </div>
+      <div style="padding:12px 14px;border-bottom:1px solid #f1f5f9;cursor:pointer;">
+        <div style="font-size:14px;font-weight:500;">Carlos Ruiz</div>
+        <div style="font-size:12px;color:#64748b;">QA Manager</div>
+      </div>
+      <div style="padding:12px 14px;border-bottom:1px solid #f1f5f9;cursor:pointer;">
+        <div style="font-size:14px;font-weight:500;">Maya Chen</div>
+        <div style="font-size:12px;color:#64748b;">Developer</div>
+      </div>
+      <div style="padding:12px 14px;cursor:pointer;">
+        <div style="font-size:14px;font-weight:500;">Tom Baker</div>
+        <div style="font-size:12px;color:#64748b;">QA Engineer</div>
+      </div>
+    </div>
+    <div style="padding:20px;overflow-y:auto;">
+      <div style="font-size:16px;font-weight:700;margin-bottom:4px;">Alice Nguyen</div>
+      <div style="font-size:13px;color:#64748b;margin-bottom:16px;">Senior Developer · Engineering</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div><div class="label">Manager</div><div style="font-size:14px;">Sarah Jones</div></div>
+        <div><div class="label">Start Date</div><div style="font-size:14px;">12 Mar 2021</div></div>
+        <div><div class="label">Skills</div><div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:2px;"><span class="badge badge-slate">TypeScript</span><span class="badge badge-slate">React</span></div></div>
+        <div><div class="label">Status</div><div style="margin-top:2px;"><span class="badge badge-green">Active</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
